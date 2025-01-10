@@ -1,13 +1,10 @@
 # Lolita-Web-Scraping
 Web scraping project - scraping one of my favourite shops that I frequent on the odd occasion. This youtube video is my inspiration to learn this skill --> https://www.youtube.com/watch?v=M37koTo8NjA&t=158s.
 
-Developer tools are apparently a better option to inspect data than it would be to just right click and "view page source". You can go to "view" and select "Developer" and then "Developer tools" or just use Command-Option-I on the mac (shortcut). I just wanted to add --> I'd really learnt quite a lot from this youtube video -> it was terribly entertaining and disgustingly informative that I feel almost reborn. From learning about cookies to what each component meant when looking at the source code etc.
-
 Starting building webscrapper:
-- Created a requirements.txt file --> list all the dependencies (external libraries) the project requires (apparently a good habit to get into --> seperate file to list all dependencies).   Make sure to also have the version(s) of those dependencies.
+- Created a requirements.txt file --> list all the dependencies (external libraries) the project requires (apparently a good habit to get into --> seperate file to list all dependencies). Make sure to also have the version(s) of those dependencies.
   
-- Created virtual environment (isolated space --> install dependencies to not interfere with other dependencies in other virtual environments and not interfere with other python.
-  dependencies installed on the system level).
+- Created virtual environment (isolated space --> install dependencies to not interfere with other dependencies in other virtual environments and not interfere with other python dependencies installed on the system level).
 
 - Activate virtual environment (then list installed dependencies in requirements.txt file).
   
@@ -21,4 +18,10 @@ Starting building webscrapper:
 
 - Using beautifulsoup now to query elements that are on that webpage (allows you to have access to numerous methods). For example, soup.find_all('a') retrieves all <a> (anchor) tags from the HTML, which represent links on the webpage. My webpage contained 638 links.
 
-- 
+- We then want to find the container (contains the ex. dress object) and try to find some kind of identifier. Notice, they have the same class name (so to obtain all dresses on this webpage, we need to search for all div elements with this class name).
+
+- We have now set a debugging breakpoint. A breakpoint is a point in the code where execution will pause so that you can examine the state of the program. In this case, the speaker uses Python's built-in pdb (Python Debugger) module to pause the program. This is just a handy way to do this in the shell (finding the selectors we want). For example, (Pdb) first_product.find('span', class_='now-price').text
+
+- The speaker is mentioning that sometimes webscrapers fail since, for instance, one of those products will not have the exact terminology (and then it fails) and causes the entire script to stop running. To avoid this, add some basic error handling. Since you can then adapt your webscaper to deal with different errors as they come.
+
+- We will now loop through every product and also create a try/except block to catch any errors wen looping.
